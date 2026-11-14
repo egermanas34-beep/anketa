@@ -6,5 +6,101 @@
   </head>
   <body>
     <h1>Apklausa</h1>
+    <p>
+      "Sveiki! Ši apklausa padės mums suprasti jūsų nuoširdžius pasirinkimus."
+    </p>
+    <h2>Klausimai:</h2>
+    <p>1. Kokia yra jūsų lytis?</p>
+    <select>
+      <option value="vyras">Vyras</option>
+      <option value="moteris">Moteris</option>
+      <option value="kita">Kita</option>
+    </select>
+    <p>2. Koks yra jūsų vardas?</p>
+    <input type="text" name="vardas" />
+    <p>Koks yra jūsų antras vardas?(nebūtina)</p>
+    <input type="text" name="antras_vardas" />
+    <p>Kokia yra jūsų pavardė</p>
+    <input type="text" name="pavarde" />
+    <p>3. Kokia yra jūsų gimimo data?</p>
+    <input type="date" name="gimimo_data" />
+    <p>4. Koks yra jūsų asmens kodas?</p>
+    <input type="text" name="asmens_kodas" />
+    <p>5. Koks yra jūsų išsilavinimas?</p>
+    <select>
+      <option value="pagrindinis">Pagrindinis</option>
+      <option value="vidurinis">Vidurinis</option>
+      <option value="aukstasis-kolegijinis">Aukštasis kolegijinis</option>
+      <option value="aukstasis-universiteto">Aukštasis universitetinis</option>
+    </select>
+    <p>Kokia paskutinė baigta mokymo įstaiga ir baigimo metai?</p>
+    <input type="text" name="mokymo_istaiga" />
+    <p>Kvalifikacija:</p>
+    <input type="text" name="kvalifikacija" />
+    <p>Kokį mokslinį laipsnį turite?</p>
+    <div class="kolegija">
+      <select>
+        <option value="bakalauras">Profesinis bakalauras</option>
+      </select>
+    </div>
+    <div class="universitetas">
+      <select id="aukstasis-universiteto">
+        <option value="bakalauras">Bakalauras</option>
+        <option value="magistras">Magistras</option>
+        <option value="daktaras">Daktaras</option>
+      </select>
+    </div>
+    <p>6. Koks yra jūsų telefono numeris?</p>
+    <input type="text" name="telefono_numeris" />
+    <p>7. Koks yra jūsų el. pašto adresas?</p>
+    <input type="email" name="el_pastas" />
+    <p>8. Koks yra jūsų gyvenamosios vietos adresas?</p>
+    <input type="text" name="adresas" />
+    <p>9. Kokia yra jūsų vedybinė padėtis?</p>
+    <select>
+      <option value="nevedes/neistekejusi">Nevedęs/Neištekėjusi</option>
+      <option value="vedes/istekejusi">Vedęs/Ištekėjusi</option>
+      <option value="issiskyres(-usi)">Išsiskyręs(-usi)</option>
+      <option value="susituokęs(-usi)">Susituokęs(-usi)</option>
+    </select>
+    <p>10. Kokia yra jūsų darbo padėtis?</p>
+    <select>
+      <option value="studijuoju">Studijuoju</option>
+      >
+      <option value="dirbu">Dirbu</option>
+      <option value="nedirbu">Nedirbu</option>
+      <option value="mot.tev.atostogos">Motinystės/tėvystės atostogos</option>
+      <option value="pensininkas">Pensininkas</option>
+    </select>
+    <div class="studentas">
+      <p>Kokia yra jūsų studijų pakopa?</p>
+      <select>
+        <option value="bakalauras">Bakalauras</option>
+        <option value="magistras">Magistras</option>
+        <option value="daktaras">Daktaras</option>
+      </select>
+    </div>
+    <div class="dirbu">
+      <p>Kokia yra jūsų darbo patirtis?</p>
+      <input type="number" name="darbo_patirtis" />
+    </div>
+    <p>Kokia yra jūsų darbo sritis?</p>
+    <select>
+      <option class="teise">Teisė</option>
+      <option class="viesas-sektorius">Viešasis sektorius</option>
+      <option class="sveikatos-apsauga">Sveikatos apsauga</option>
+      <option class="farmacija">Farmacija</option>
+      <option class="pramone-gamyba">Pramonė/gamyba</option>
+      <option class="IT">IT</option>
+      <option class="prekyba">Prekyba</option>
+      <option class="krasto-apsauga">Krašto apsauga</option>
+      <option class="vidaus-reikalu-sistema">Vidaus reikalų sistema</option>
+      <option class="klientu-aptarnavimas-paslaugos">
+        Klientų aptarnavimas/paslaugos
+      </option>
+      <option class="transportas">Transportas</option>
+      <option class="kultura-ir-pramogos">Kultūra ir pramogos</option>
+      <option class="svietimas-studijos">Švietimas/studijos</option>
+    </select>
   </body>
 </html>
