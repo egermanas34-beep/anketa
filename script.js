@@ -16,3 +16,16 @@ function atnaujintiPasirinkimusIssilavinimo() {
 issilavinimas.addEventListener("change", atnaujintiPasirinkimusIssilavinimo);
 // Iškviečiame funkciją, kad nustatytume pradinę būseną
 atnaujintiPasirinkimusIssilavinimo();
+
+const vedybinePadetis = document.getElementById("vedybine_padetis");
+const vedes = document.querySelector(".vedes-istekejusi");
+function atnaujintiPasirinkimusVedybinePadetis() {
+  const pasirinkimas = vedybinePadetis.value;
+  rodytiGrupe(vedes, pasirinkimas === "vedes/istekejusi");
+}
+vedybinePadetis.addEventListener(
+  "change",
+  atnaujintiPasirinkimusVedybinePadetis,
+);
+// Iškviečiame funkciją, kad nustatytume pradinę būseną
+atnaujintiPasirinkimusVedybinePadetis();
