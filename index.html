@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="lt">
   <head>
     <title>Apklausa</title>
     <meta charset="UTF-8" />
@@ -9,98 +10,145 @@
     <p>
       "Sveiki! Ši apklausa padės mums suprasti jūsų nuoširdžius pasirinkimus."
     </p>
-    <h2>Klausimai:</h2>
-    <p>1. Kokia yra jūsų lytis?</p>
-    <select>
-      <option value="vyras">Vyras</option>
-      <option value="moteris">Moteris</option>
-      <option value="kita">Kita</option>
-    </select>
-    <p>2. Koks yra jūsų vardas?</p>
-    <input type="text" name="vardas" />
-    <p>Koks yra jūsų antras vardas?(nebūtina)</p>
-    <input type="text" name="antras_vardas" />
-    <p>Kokia yra jūsų pavardė</p>
-    <input type="text" name="pavarde" />
-    <p>3. Kokia yra jūsų gimimo data?</p>
-    <input type="date" name="gimimo_data" />
-    <p>4. Koks yra jūsų asmens kodas?</p>
-    <input type="text" name="asmens_kodas" />
-    <p>5. Koks yra jūsų išsilavinimas?</p>
-    <select>
-      <option value="pagrindinis">Pagrindinis</option>
-      <option value="vidurinis">Vidurinis</option>
-      <option value="aukstasis-kolegijinis">Aukštasis kolegijinis</option>
-      <option value="aukstasis-universiteto">Aukštasis universitetinis</option>
-    </select>
-    <p>Kokia paskutinė baigta mokymo įstaiga ir baigimo metai?</p>
-    <input type="text" name="mokymo_istaiga" />
-    <p>Kvalifikacija:</p>
-    <input type="text" name="kvalifikacija" />
-    <p>Kokį mokslinį laipsnį turite?</p>
-    <div class="kolegija">
-      <select>
-        <option value="bakalauras">Profesinis bakalauras</option>
+    <form id="anketa">
+      <h2>Klausimai:</h2>
+      <p>1. Kokia yra jūsų lytis?</p>
+      <label for="lytis">Lytis:</label>
+      <select id="lytis" name="lytis" required>
+        <option value="" selected disabled>Pasirinkite lytį</option>
+        <option value="vyras">Vyras</option>
+        <option value="moteris">Moteris</option>
+        <option value="kita">Kita</option>
       </select>
-    </div>
-    <div class="universitetas">
-      <select id="aukstasis-universiteto">
-        <option value="bakalauras">Bakalauras</option>
-        <option value="magistras">Magistras</option>
-        <option value="daktaras">Daktaras</option>
+      <p>2. Koks yra jūsų vardas?</p>
+      <input type="text" name="vardas" required />
+      <p>Koks yra jūsų antras vardas?(nebūtina)</p>
+      <input type="text" name="antras_vardas" />
+      <p>Kokia yra jūsų pavardė</p>
+      <input type="text" name="pavarde" required />
+      <p>3. Kokia yra jūsų gimimo data?</p>
+      <input type="date" name="gimimo_data" required />
+      <p>4. Koks yra jūsų asmens kodas?</p>
+      <input type="text" name="asmens_kodas" required />
+      <p>5. Koks yra jūsų išsilavinimas?</p>
+      <label for="issilavinimas">Išsilavinimas:</label>
+      <select id="issilavinimas" name="issilavinimas" required>
+        <option value="" selected disabled>Pasirinkite išsilavinimą</option>
+        <option value="pagrindinis">Pagrindinis</option>
+        <option value="vidurinis">Vidurinis</option>
+        <option value="profesinis">Profesinis</option>
+        <option value="aukstasis-kolegijinis">Aukštasis kolegijinis</option>
+        <option value="aukstasis-universiteto">
+          Aukštasis universitetinis
+        </option>
       </select>
-    </div>
-    <p>6. Koks yra jūsų telefono numeris?</p>
-    <input type="text" name="telefono_numeris" />
-    <p>7. Koks yra jūsų el. pašto adresas?</p>
-    <input type="email" name="el_pastas" />
-    <p>8. Koks yra jūsų gyvenamosios vietos adresas?</p>
-    <input type="text" name="adresas" />
-    <p>9. Kokia yra jūsų vedybinė padėtis?</p>
-    <select>
-      <option value="nevedes/neistekejusi">Nevedęs/Neištekėjusi</option>
-      <option value="vedes/istekejusi">Vedęs/Ištekėjusi</option>
-      <option value="issiskyres(-usi)">Išsiskyręs(-usi)</option>
-      <option value="susituokęs(-usi)">Susituokęs(-usi)</option>
-    </select>
-    <p>10. Kokia yra jūsų darbo padėtis?</p>
-    <select>
-      <option value="studijuoju">Studijuoju</option>
-      >
-      <option value="dirbu">Dirbu</option>
-      <option value="nedirbu">Nedirbu</option>
-      <option value="mot.tev.atostogos">Motinystės/tėvystės atostogos</option>
-      <option value="pensininkas">Pensininkas</option>
-    </select>
-    <div class="studentas">
-      <p>Kokia yra jūsų studijų pakopa?</p>
-      <select>
-        <option value="bakalauras">Bakalauras</option>
-        <option value="magistras">Magistras</option>
-        <option value="daktaras">Daktaras</option>
+      <p>Kokia paskutinė baigta mokymo įstaiga ir baigimo metai?</p>
+      <input type="text" name="mokymo_istaiga" required />
+      <input type="text" name="baigimo_metai" required />
+      <p>Kvalifikacija:</p>
+      <input type="text" name="kvalifikacija" />
+      <p>Kokį mokslinį laipsnį turite?</p>
+      <div class="kolegija">
+        <label for="kolegija">Kolegija:</label>
+        <select id="kolegija" name="kolegija" required>
+          <option value="" selected disabled>Pasirinkite kolegiją</option>
+          <option value="bakalauras">Profesinis bakalauras</option>
+        </select>
+      </div>
+      <div class="universitetas">
+        <label for="aukstasis-universiteto">Universitetas:</label>
+        <select
+          id="aukstasis-universiteto"
+          name="aukstasis-universiteto"
+          required
+        >
+          <option value="" selected disabled>Pasirinkite universitetą</option>
+          <option value="bakalauras">Bakalauras</option>
+          <option value="magistras">Magistras</option>
+          <option value="daktaras">Daktaras</option>
+        </select>
+      </div>
+      <p>6. Koks yra jūsų telefono numeris?</p>
+      <input type="tel" name="telefono_numeris" required />
+      <p>7. Koks yra jūsų el. pašto adresas?</p>
+      <input type="email" name="el_pastas" required />
+      <p>8. Koks yra jūsų gyvenamosios vietos adresas?</p>
+      <input type="text" name="adresas" required />
+      <p>9. Kokia yra jūsų vedybinė padėtis?</p>
+      <label for="vedybine_padetis">Vedybinė padėtis:</label>
+      <select id="vedybine_padetis" name="vedybine_padetis" required>
+        <option value="" selected disabled>Pasirinkite vedybinę padėtį</option>
+        <option value="nevedes/neistekejusi">Nevedęs/Neištekėjusi</option>
+        <option value="vedes/istekejusi">Vedęs/Ištekėjusi</option>
+        <option value="issiskyres(-usi)">Išsiskyręs(-usi)</option>
       </select>
-    </div>
-    <div class="dirbu">
-      <p>Kokia yra jūsų darbo patirtis?</p>
-      <input type="number" name="darbo_patirtis" />
-    </div>
-    <p>Kokia yra jūsų darbo sritis?</p>
-    <select>
-      <option class="teise">Teisė</option>
-      <option class="viesas-sektorius">Viešasis sektorius</option>
-      <option class="sveikatos-apsauga">Sveikatos apsauga</option>
-      <option class="farmacija">Farmacija</option>
-      <option class="pramone-gamyba">Pramonė/gamyba</option>
-      <option class="IT">IT</option>
-      <option class="prekyba">Prekyba</option>
-      <option class="krasto-apsauga">Krašto apsauga</option>
-      <option class="vidaus-reikalu-sistema">Vidaus reikalų sistema</option>
-      <option class="klientu-aptarnavimas-paslaugos">
-        Klientų aptarnavimas/paslaugos
-      </option>
-      <option class="transportas">Transportas</option>
-      <option class="kultura-ir-pramogos">Kultūra ir pramogos</option>
-      <option class="svietimas-studijos">Švietimas/studijos</option>
-    </select>
+      <div class="vedes-istekejusi">
+        <p>Koks yra jūsų sutuoktinio(-ės) vardas?</p>
+        <input type="text" name="sutuoktinio_vardas" required />
+      </div>
+      <p>10. Kokia yra jūsų darbo padėtis?</p>
+      <label for="darbo_padetis">Darbo padėtis:</label>
+      <select id="darbo_padetis" name="darbo_padetis" required>
+        <option value="" selected disabled>Pasirinkite darbo padėtį</option>
+        <option value="studijuoju">Studijuoju</option>
+        <option value="dirbu">Dirbu</option>
+        <option value="nedirbu">Nedirbu</option>
+        <option value="mot.tev.atostogos">Motinystės/tėvystės atostogos</option>
+        <option value="pensininkas">Pensininkas</option>
+      </select>
+      <div class="studentas">
+        <p>Kokia yra jūsų studijų pakopa?</p>
+        <label for="studiju_pakopa">Studijų pakopa:</label>
+        <select id="studiju_pakopa" name="studiju_pakopa" required>
+          <option value="" selected disabled>Pasirinkite studijų pakopą</option>
+          <option value="bakalauras">Bakalauras</option>
+          <option value="magistras">Magistras</option>
+          <option value="daktaras">Daktaras</option>
+        </select>
+        <p>Kuriame kurse studijuojate?</p>
+        <input type="number" name="kursas" required />
+        <p>Kokioje mokymo įstaigoje studijuojate?</p>
+        <input type="text" name="mokymo_istaiga" required />
+        <p>Kada jūs baigsite studijas?</p>
+        <input type="date" name="baigimo_data" required />
+      </div>
+      <div class="dirbu">
+        <p>Kokioje įstaigoje dirbate?</p>
+        <input type="text" name="darbo_istaiga" required />
+        <p>Kokias pareigas atliekate?</p>
+        <input type="text" name="pareigos" required />
+        <p>Kokia yra jūsų darbo patirtis?</p>
+        <input type="number" name="darbo_patirtis" min="0" required />
+      </div>
+      <p>Kokia yra jūsų darbo sritis?</p>
+      <label for="darbo_sritis">Darbo sritis:</label>
+      <select id="darbo_sritis" name="darbo_sritis" required>
+        <option value="" selected disabled>Pasirinkite darbo sritį</option>
+        <option value="teise">Teisė</option>
+        <option value="viesas-sektorius">Viešasis sektorius</option>
+        <option value="sveikatos-apsauga">Sveikatos apsauga</option>
+        <option value="farmacija">Farmacija</option>
+        <option value="pramone-gamyba">Pramonė/gamyba</option>
+        <option value="IT">IT</option>
+        <option value="prekyba">Prekyba</option>
+        <option value="krasto-apsauga">Krašto apsauga</option>
+        <option value="vidaus-reikalu-sistema">Vidaus reikalų sistema</option>
+        <option value="klientu-aptarnavimas-paslaugos">
+          Klientų aptarnavimas/paslaugos
+        </option>
+        <option value="transportas">Transportas</option>
+        <option value="kultura-ir-pramogos">Kultūra ir pramogos</option>
+        <option value="svietimas-studijos">Švietimas/studijos</option>
+      </select>
+      <div class="nedirbu">
+        <p>Kokia yra jūsų nedirbimo priežastis?</p>
+        <input type="text" name="nedirbimo_priezastis" required />
+      </div>
+      <div class="mot-tev-atostogos">
+        <p>Kada baigsite motinystės/tėvystės atostogas?</p>
+        <input type="date" name="atostogu_baigimo_data" required />
+      </div>
+      <button type="submit">Pateikti</button>
+    </form>
   </body>
 </html>
