@@ -1,0 +1,212 @@
+/* Naudotojo sąsajos kūrimas – dinaminė duomenų anketa */
+:root {
+  color-scheme: light;
+  --fonas: #f3f6fc;
+  --pavirsius: #ffffff;
+  --tekstas: #172033;
+  --antrinis: #526077;
+  --akcentas: #1d4ed8;
+  --akcentas-hover: #1e40af;
+  --krastine: #c4cfde;
+  --skyriaus-fonas: #f7f9fd;
+  --seselis: 0 15px 40px rgba(22, 35, 62, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 48px 20px 72px;
+  background: var(--fonas);
+  color: var(--tekstas);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+}
+
+body > h1,
+body > p {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+body > h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+  letter-spacing: -0.035em;
+}
+
+body > p {
+  margin-top: 0;
+  margin-bottom: 28px;
+  color: var(--antrinis);
+}
+
+form {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 42px;
+  background: var(--pavirsius);
+  border: 1px solid #e1e7f0;
+  border-radius: 18px;
+  box-shadow: var(--seselis);
+}
+
+form h2 {
+  margin: 0 0 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e1e7f0;
+  font-size: 1.3rem;
+}
+
+/* Klausimų tekstai ir susietos etiketės */
+form p {
+  margin: 22px 0 8px;
+  font-weight: 600;
+}
+
+form label {
+  display: block;
+  margin: 12px 0 7px;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+/* Formos valdikliai */
+form input,
+form select {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid var(--krastine);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--tekstas);
+  font: inherit;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+form input:hover,
+form select:hover {
+  border-color: #8394ad;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--akcentas);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+}
+
+form input::placeholder {
+  color: #66758b;
+}
+
+/* Tarpas tarp dviejų iš eilės einančių laukų */
+form input + input {
+  margin-top: 12px;
+}
+
+/* Papildomi, vėliau su JavaScript rodomi laukai */
+form .kolegija,
+form .universitetas,
+form .vedes-istekejusi,
+form .studentas,
+form .dirbu,
+form .nedirbu,
+form .mot-tev-atostogos {
+  margin-top: 18px;
+  padding: 18px 20px 22px;
+  background: var(--skyriaus-fonas);
+  border: 1px solid #dce5f2;
+  border-left: 4px solid var(--akcentas);
+  border-radius: 10px;
+}
+
+form > div p:first-child,
+form > div label:first-child {
+  margin-top: 0;
+}
+
+/* Šią klasę vėliau galės valdyti JavaScript */
+.is-hidden {
+  display: none;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 32px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--akcentas);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+button[type="submit"]:hover {
+  background: var(--akcentas-hover);
+}
+button[type="submit"]:active {
+  transform: translateY(1px);
+}
+button[type="submit"]:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+/* Telefonų ir mažesnių ekranų išdėstymas */
+@media (max-width: 600px) {
+  body {
+    padding: 26px 12px 42px;
+  }
+  body > p {
+    margin-bottom: 20px;
+  }
+  form {
+    padding: 24px 18px;
+    border-radius: 13px;
+  }
+  form h2 {
+    margin-bottom: 18px;
+  }
+  form p {
+    margin-top: 19px;
+  }
+  form .kolegija,
+  form .universitetas,
+  form .vedes-istekejusi,
+  form .studentas,
+  form .dirbu,
+  form .nedirbu,
+  form .mot-tev-atostogos {
+    padding: 16px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
