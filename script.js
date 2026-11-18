@@ -29,3 +29,37 @@ vedybinePadetis.addEventListener(
 );
 // Iškviečiame funkciją, kad nustatytume pradinę būseną
 atnaujintiPasirinkimusVedybinePadetis();
+const gimimoData = document.querySelector('input[name="gimimo_data"]');
+const vedesOption = document.querySelector('option[value="vedes/istekejusi"]');
+const issiskyresOption = document.querySelector(
+  'option[value="issiskyres(-usi)"]',
+);
+function apskaiciuotiAmziu() {
+  if (!gimimoData.value) {
+    return null;
+  }
+  const siandien = new Date();
+  const [metai, menesis, diena] = gimimoData.value.split("-").map(Number);
+  let amzius = siandien.getFullYear() - metai;
+  if (
+    siandien.getMonth() < menesis - 1 ||
+    (siandien.getMonth() === menesis - 1 && siandien.getDate() < diena)
+  ) {
+    amzius--;
+  }
+  return amzius;
+}
+function tikrintiSantuokosAmziu() {
+  const amzius = apskaiciuotiAmziu();
+  vedesOption.disabled = amzius < 18 || amzius === null;
+  issiskyresOption.disabled = amzius < 18 || amzius === null;
+  if (
+    (vedesOption.disabled && vedybinePadetis.value === "vedes/istekejusi") ||
+    (issiskyresOption.disabled && vedybinePadetis.value === "issiskyres(-usi)")
+  ) {
+    vedybinePadetis.value = "";
+  }
+  atnaujintiPasirinkimusVedybinePadetis();
+}
+gimimoData.addEventListener("change", tikrintiSantuokosAmziu);
+tikrintiSantuokosAmziu();
