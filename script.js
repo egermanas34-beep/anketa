@@ -79,3 +79,28 @@ function atnaujintiPasirinkimusDarboPadetis() {
 darboPadetis.addEventListener("change", atnaujintiPasirinkimusDarboPadetis);
 // Iškviečiame funkciją, kad nustatytume pradinę būseną
 atnaujintiPasirinkimusDarboPadetis();
+const lytis = document.querySelector('select[name="lytis"]');
+const asmensKodas = document.querySelector('input[name="asmens_kodas"]');
+function atnaujintiAsmensKoda() {
+  if (!gimimoData.value || !lytis.value) {
+    asmensKodas.value = "";
+    return;
+  }
+  const [metai, menesis, diena] = gimimoData.value.split("-");
+  const gimimoMetai = Number(metai);
+  let pirmasSkaitmuo;
+  if (gimimoMetai >= 1800 && gimimoMetai < 1900) {
+    pirmasisSkaitmuo = lytis.value === "vyras" ? 1 : 2;
+  } else if (gimimoMetai >= 1900 && gimimoMetai < 2000) {
+    pirmasisSkaitmuo = lytis.value === "vyras" ? 3 : 4;
+  } else if (gimimoMetai >= 2000 && gimimoMetai < 2100) {
+    pirmasisSkaitmuo = lytis.value === "vyras" ? 5 : 6;
+  } else {
+    asmensKodas.value = "";
+    return;
+  }
+  asmensKodas.value = pirmasisSkaitmuo + metai.slice(-2) + menesis + diena;
+}
+gimimoData.addEventListener("change", atnaujintiAsmensKoda);
+lytis.addEventListener("change", atnaujintiAsmensKoda);
+atnaujintiAsmensKoda();
