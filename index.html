@@ -17,7 +17,6 @@
         <option value="" selected disabled>Pasirinkite lytį</option>
         <option value="vyras">Vyras</option>
         <option value="moteris">Moteris</option>
-        <option value="kita">Kita</option>
       </select>
       <p>2. Koks yra jūsų vardas?</p>
       <input type="text" name="vardas" required />
@@ -28,7 +27,18 @@
       <p>3. Kokia yra jūsų gimimo data?</p>
       <input type="date" name="gimimo_data" required />
       <p>4. Koks yra jūsų asmens kodas?</p>
-      <input type="text" name="asmens_kodas" required />
+      <div class="asmens-kodas">
+        <input type="text" id="kodo_pradzia" readonly />
+        <input
+          type="text"
+          id="kodo_pabaiga"
+          inputmode="numeric"
+          maxlength="4"
+          pattern="[0-9]{4}"
+          required
+        />
+        <input type="hidden" id="asmens_kodas" name="asmens_kodas" />
+      </div>
       <p>5. Koks yra jūsų išsilavinimas?</p>
       <label for="issilavinimas">Išsilavinimas:</label>
       <select id="issilavinimas" name="issilavinimas" required>
@@ -41,8 +51,9 @@
           Aukštasis universitetinis
         </option>
       </select>
-      <p>Kokį mokslinį laipsnį turite?</p>
+
       <div class="kolegija">
+        <p>Kokį mokslinį laipsnį turite?</p>
         <label for="kolegija">Kolegija:</label>
         <select id="kolegija" name="kolegija" required>
           <option value="" selected disabled>Pasirinkite kolegiją</option>
@@ -50,6 +61,7 @@
         </select>
       </div>
       <div class="universitetas">
+        <p>Kokį mokslinį laipsnį turite?</p>
         <label for="aukstasis-universiteto">Universitetas:</label>
         <select
           id="aukstasis-universiteto"

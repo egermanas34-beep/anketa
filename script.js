@@ -81,26 +81,44 @@ darboPadetis.addEventListener("change", atnaujintiPasirinkimusDarboPadetis);
 atnaujintiPasirinkimusDarboPadetis();
 const lytis = document.querySelector('select[name="lytis"]');
 const asmensKodas = document.querySelector('input[name="asmens_kodas"]');
+const kodoPradzia = document.getElementById("kodo_pradzia");
+const kodoPabaiga = document.getElementById("kodo_pabaiga");
 function atnaujintiAsmensKoda() {
   if (!gimimoData.value || !lytis.value) {
-    asmensKodas.value = "";
+    kodoPradzia.value = "";
+    sujungtiAsmensKoda();
     return;
   }
   const [metai, menesis, diena] = gimimoData.value.split("-");
   const gimimoMetai = Number(metai);
   let pirmasSkaitmuo;
   if (gimimoMetai >= 1800 && gimimoMetai < 1900) {
-    pirmasisSkaitmuo = lytis.value === "vyras" ? 1 : 2;
+    pirmasSkaitmuo = lytis.value === "vyras" ? 1 : 2;
   } else if (gimimoMetai >= 1900 && gimimoMetai < 2000) {
-    pirmasisSkaitmuo = lytis.value === "vyras" ? 3 : 4;
+    pirmasSkaitmuo = lytis.value === "vyras" ? 3 : 4;
   } else if (gimimoMetai >= 2000 && gimimoMetai < 2100) {
-    pirmasisSkaitmuo = lytis.value === "vyras" ? 5 : 6;
+    pirmasSkaitmuo = lytis.value === "vyras" ? 5 : 6;
   } else {
-    asmensKodas.value = "";
+    kodoPradzia.value = "";
+    sujungtiAsmensKoda();
     return;
   }
-  asmensKodas.value = pirmasisSkaitmuo + metai.slice(-2) + menesis + diena;
+  kodoPradzia.value = pirmasSkaitmuo + metai.slice(-2) + menesis + diena;
+  sujungtiAsmensKoda();
+}
+function sujungtiAsmensKoda() {
+  const pradzia = kodoPradzia.value;
+  const pabaiga = kodoPabaiga.value;
+  if (pradzia.length === 7 && pabaiga.length === 4) {
+    asmensKodas.value = pradzia + pabaiga;
+  } else {
+    asmensKodas.value = "";
+  }
 }
 gimimoData.addEventListener("change", atnaujintiAsmensKoda);
 lytis.addEventListener("change", atnaujintiAsmensKoda);
+kodoPabaiga.addEventListener("input", () => {
+  kodoPabaiga.value = kodoPabaiga.value.replace(/\D/g, "").slice(0, 4);
+  sujungtiAsmensKoda();
+});
 atnaujintiAsmensKoda();
