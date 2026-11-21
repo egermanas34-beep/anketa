@@ -205,7 +205,16 @@ button[type="submit"]:focus-visible {
   outline: 3px solid #93c5fd;
   outline-offset: 3px;
 }
+.asmens-kodas.klaidingas {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
 
+.klaida {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 6px;
+}
 /* Telefonų ir mažesnių ekranų išdėstymas */
 @media (max-width: 600px) {
   body {

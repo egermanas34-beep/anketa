@@ -83,6 +83,8 @@ const lytis = document.querySelector('select[name="lytis"]');
 const asmensKodas = document.querySelector('input[name="asmens_kodas"]');
 const kodoPradzia = document.getElementById("kodo_pradzia");
 const kodoPabaiga = document.getElementById("kodo_pabaiga");
+const asmensKodoKlaida = document.getElementById("asmens-kodo-klaida");
+const asmensKodoGrupe = document.querySelector(".asmens-kodas");
 function atnaujintiAsmensKoda() {
   if (!gimimoData.value || !lytis.value) {
     kodoPradzia.value = "";
@@ -109,11 +111,18 @@ function atnaujintiAsmensKoda() {
 function sujungtiAsmensKoda() {
   const pradzia = kodoPradzia.value;
   const pabaiga = kodoPabaiga.value;
+  let klaidingas = false;
   if (pradzia.length === 7 && pabaiga.length === 4) {
     asmensKodas.value = pradzia + pabaiga;
+    klaidingas = !patikrintiAsmensKoda(asmensKodas.value);
   } else {
     asmensKodas.value = "";
   }
+  kodoPabaiga.setCustomValidity(
+    klaidingas ? "Neteisingas asmens kodo kontrolinis skaitmuo!" : "",
+  );
+  asmensKodoKlaida.hidden = !klaidingas;
+  asmensKodoGrupe.classList.toggle("klaidingas", klaidingas);
 }
 gimimoData.addEventListener("change", atnaujintiAsmensKoda);
 lytis.addEventListener("change", atnaujintiAsmensKoda);
@@ -121,4 +130,28 @@ kodoPabaiga.addEventListener("input", () => {
   kodoPabaiga.value = kodoPabaiga.value.replace(/\D/g, "").slice(0, 4);
   sujungtiAsmensKoda();
 });
+function patikrintiAsmensKoda(kodas) {
+  if (!/^\d{11}$/.test(kodas)) {
+    return false;
+  }
+  const skaiciai = kodas.split("").map(Number);
+  const koeficientai1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
+  const koeficientai2 = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
+  let suma = 0;
+  for (let i = 0; i < 10; i++) {
+    suma += skaiciai[i] * koeficientai1[i];
+  }
+  let kontrolinis = suma % 11;
+  if (kontrolinis === 10) {
+    suma = 0;
+    for (let i = 0; i < 10; i++) {
+      suma += skaiciai[i] * koeficientai2[i];
+    }
+    kontrolinis = suma % 11;
+    if (kontrolinis === 10) {
+      kontrolinis = 0;
+    }
+  }
+  return kontrolinis === skaiciai[10];
+}
 atnaujintiAsmensKoda();
