@@ -63,3 +63,19 @@ function tikrintiSantuokosAmziu() {
 }
 gimimoData.addEventListener("change", tikrintiSantuokosAmziu);
 tikrintiSantuokosAmziu();
+const darboPadetis = document.querySelector('select[name="darbo_padetis"]');
+const studentasOption = document.querySelector(".studentas");
+const dirbuOption = document.querySelector(".dirbu");
+const nedirbuOption = document.querySelector(".nedirbu");
+const motTevOption = document.querySelector(".mot-tev-atostogos");
+
+function atnaujintiPasirinkimusDarboPadetis() {
+  const pasirinkimas = darboPadetis.value;
+  rodytiGrupe(studentasOption, pasirinkimas === "studijuoju");
+  rodytiGrupe(dirbuOption, pasirinkimas === "dirbu");
+  rodytiGrupe(nedirbuOption, pasirinkimas === "nedirbu");
+  rodytiGrupe(motTevOption, pasirinkimas === "mot.tev.atostogos");
+}
+darboPadetis.addEventListener("change", atnaujintiPasirinkimusDarboPadetis);
+// Iškviečiame funkciją, kad nustatytume pradinę būseną
+atnaujintiPasirinkimusDarboPadetis();

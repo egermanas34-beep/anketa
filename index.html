@@ -95,7 +95,6 @@
         <option value="dirbu">Dirbu</option>
         <option value="nedirbu">Nedirbu</option>
         <option value="mot.tev.atostogos">Motinystės/tėvystės atostogos</option>
-        <option value="pensininkas">Pensininkas</option>
       </select>
       <div class="studentas">
         <p>Kokia yra jūsų studijų pakopa?</p>
@@ -109,7 +108,7 @@
         <p>Kuriame kurse studijuojate?</p>
         <input type="number" name="kursas" required />
         <p>Kokioje mokymo įstaigoje studijuojate?</p>
-        <input type="text" name="mokymo_istaiga" required />
+        <input type="text" name="studiju_istaiga" required />
         <p>Kada jūs baigsite studijas?</p>
         <input type="date" name="baigimo_data" required />
       </div>
@@ -120,29 +119,29 @@
         <input type="text" name="pareigos" required />
         <p>Kokia yra jūsų darbo patirtis?</p>
         <input type="number" name="darbo_patirtis" min="0" required />
+        <p>Kokia yra jūsų darbo sritis?</p>
+        <label for="darbo_sritis">Darbo sritis:</label>
+        <select id="darbo_sritis" name="darbo_sritis" required>
+          <option value="" selected disabled>Pasirinkite darbo sritį</option>
+          <option value="teise">Teisė</option>
+          <option value="viesas-sektorius">Viešasis sektorius</option>
+          <option value="sveikatos-apsauga">Sveikatos apsauga</option>
+          <option value="farmacija">Farmacija</option>
+          <option value="pramone-gamyba">Pramonė/gamyba</option>
+          <option value="IT">IT</option>
+          <option value="prekyba">Prekyba</option>
+          <option value="krasto-apsauga">Krašto apsauga</option>
+          <option value="vidaus-reikalu-sistema">Vidaus reikalų sistema</option>
+          <option value="klientu-aptarnavimas-paslaugos">
+            Klientų aptarnavimas/paslaugos
+          </option>
+          <option value="transportas">Transportas</option>
+          <option value="kultura-ir-pramogos">Kultūra ir pramogos</option>
+          <option value="svietimas-studijos">Švietimas/studijos</option>
+        </select>
       </div>
-      <p>Kokia yra jūsų darbo sritis?</p>
-      <label for="darbo_sritis">Darbo sritis:</label>
-      <select id="darbo_sritis" name="darbo_sritis" required>
-        <option value="" selected disabled>Pasirinkite darbo sritį</option>
-        <option value="teise">Teisė</option>
-        <option value="viesas-sektorius">Viešasis sektorius</option>
-        <option value="sveikatos-apsauga">Sveikatos apsauga</option>
-        <option value="farmacija">Farmacija</option>
-        <option value="pramone-gamyba">Pramonė/gamyba</option>
-        <option value="IT">IT</option>
-        <option value="prekyba">Prekyba</option>
-        <option value="krasto-apsauga">Krašto apsauga</option>
-        <option value="vidaus-reikalu-sistema">Vidaus reikalų sistema</option>
-        <option value="klientu-aptarnavimas-paslaugos">
-          Klientų aptarnavimas/paslaugos
-        </option>
-        <option value="transportas">Transportas</option>
-        <option value="kultura-ir-pramogos">Kultūra ir pramogos</option>
-        <option value="svietimas-studijos">Švietimas/studijos</option>
-      </select>
       <div class="nedirbu">
-        <p>Kokia yra jūsų nedirbimo priežastis?</p>
+        <p>Kokia yra jūsų nedarbo priežastis?</p>
         <input type="text" name="nedirbimo_priezastis" required />
       </div>
       <div class="mot-tev-atostogos">
