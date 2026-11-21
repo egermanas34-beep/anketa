@@ -167,3 +167,12 @@ function patikrintiTelefonoNumeri() {
 }
 telefonoNumeris.addEventListener("input", patikrintiTelefonoNumeri);
 patikrintiTelefonoNumeri();
+const anketa = document.getElementById("anketa");
+let anketosDuomenys = {};
+anketa.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const duomenys = new FormData(anketa);
+  anketosDuomenys = Object.fromEntries(duomenys.entries());
+  console.log("Anketos duomenys:", anketosDuomenys);
+  alert("Anketa sėkmingai pateikta!");
+});
