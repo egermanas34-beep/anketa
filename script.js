@@ -155,3 +155,15 @@ function patikrintiAsmensKoda(kodas) {
   return kontrolinis === skaiciai[10];
 }
 atnaujintiAsmensKoda();
+const telefonoNumeris = document.getElementById("telefono_numeris");
+function patikrintiTelefonoNumeri() {
+  const numeris = telefonoNumeris.value.replace(/[\s()-]/g, "");
+  const tinkamas = /^\+370\d{8}$/.test(numeris);
+  if (tinkamas) {
+    telefonoNumeris.setCustomValidity("");
+  } else {
+    telefonoNumeris.setCustomValidity("Neteisingas telefono numeris! ");
+  }
+}
+telefonoNumeris.addEventListener("input", patikrintiTelefonoNumeri);
+patikrintiTelefonoNumeri();
