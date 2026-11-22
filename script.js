@@ -177,12 +177,15 @@ anketa.addEventListener("submit", (event) => {
   alert("Anketa sėkmingai pateikta!");
 });
 const etapai = document.querySelectorAll(".etapas");
+const progresoJuosta = document.getElementById("progreso-juosta");
+const progresoTekstas = document.getElementById("progreso-tekstas");
 let dabartinisEtapas = 0;
 function rodytiEtapa() {
   etapai.forEach((etapas) => {
     etapas.hidden = true;
   });
   etapai[dabartinisEtapas].hidden = false;
+  atnaujintiProgresoJuosta();
 }
 rodytiEtapa();
 const toliauMygtukai = document.querySelectorAll(".toliau");
@@ -215,4 +218,9 @@ function patikrintiEtapa() {
     }
   }
   return true;
+}
+
+function atnaujintiProgresoJuosta() {
+  progresoJuosta.value = dabartinisEtapas + 1;
+  progresoTekstas.textContent = `${dabartinisEtapas + 1} iš ${etapai.length}`;
 }

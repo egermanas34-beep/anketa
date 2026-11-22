@@ -11,6 +11,16 @@
     <p>"Šioje apklausoje suriksime jūsų asmens duomenis."</p>
     <form id="anketa">
       <h2>Klausimai:</h2>
+
+      <div class="progreso-konteineris">
+        <label for="progreso-juosta">
+          Anketos pildymo eiga:
+          <span id="progreso-tekstas">1 iš 5</span>
+        </label>
+
+        <progress id="progreso-juosta" value="1" max="5"></progress>
+      </div>
+
       <section class="etapas">
         <h2>Asmeniniai duomenys</h2>
         <p>1. Kokia yra jūsų lytis?</p>
@@ -44,7 +54,9 @@
         <p id="asmens-kodo-klaida" class="klaida" hidden>
           Neteisingas asmens kodo kontrolinis skaitmuo!
         </p>
-        <button type="button" id="toliau" class="toliau">Toliau</button>
+        <div class="navigacija">
+          <button type="button" class="toliau">Toliau</button>
+        </div>
       </section>
       <section class="etapas" hidden>
         <h2>Išsilavinimas</h2>
@@ -88,8 +100,10 @@
         <input type="number" name="baigimo_metai" required />
         <p>Kvalifikacija:</p>
         <input type="text" name="kvalifikacija" />
-        <button type="button" id="atgal" class="atgal">Atgal</button>
-        <button type="button" id="toliau2" class="toliau">Toliau</button>
+        <div class="navigacija">
+          <button type="button" class="atgal">Atgal</button>
+          <button type="button" class="toliau">Toliau</button>
+        </div>
       </section>
       <section class="etapas" hidden>
         <h2>Kontaktinė informacija</h2>
@@ -107,8 +121,10 @@
         <input type="email" name="el_pastas" required />
         <p>8. Koks yra jūsų gyvenamosios vietos adresas?</p>
         <input type="text" name="adresas" required />
-        <button type="button" id="atgal2" class="atgal">Atgal</button>
-        <button type="button" id="toliau3" class="toliau">Toliau</button>
+        <div class="navigacija">
+          <button type="button" class="atgal">Atgal</button>
+          <button type="button" class="toliau">Toliau</button>
+        </div>
       </section>
       <section class="etapas" hidden>
         <h2>Vedybinė padėtis</h2>
@@ -128,8 +144,10 @@
           <p>Kokia yra jūsų sutuoktinio(-ės) pavardė?</p>
           <input type="text" name="sutuoktinio_pavarde" required />
         </div>
-        <button type="button" id="atgal3" class="atgal">Atgal</button>
-        <button type="button" id="toliau4" class="toliau">Toliau</button>
+        <div class="navigacija">
+          <button type="button" id="atgal3" class="atgal">Atgal</button>
+          <button type="button" id="toliau4" class="toliau">Toliau</button>
+        </div>
       </section>
       <section class="etapas" hidden>
         <h2>Darbo padėtis</h2>
@@ -200,8 +218,10 @@
           <p>Kada baigsite motinystės/tėvystės atostogas?</p>
           <input type="date" name="atostogu_baigimo_data" required />
         </div>
-        <button type="button" id="atgal4" class="atgal">Atgal</button>
-        <button type="submit">Pateikti</button>
+        <div class="navigacija">
+          <button type="button" id="atgal4" class="atgal">Atgal</button>
+          <button type="submit">Pateikti</button>
+        </div>
       </section>
     </form>
   </body>
