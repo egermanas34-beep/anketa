@@ -172,7 +172,7 @@ atnaujintiAsmensKoda();
 const telefonoNumeris = document.getElementById("telefono_numeris");
 function patikrintiTelefonoNumeri() {
   const numeris = telefonoNumeris.value.replace(/[\s()-]/g, "");
-  const tinkamas = /^\+370\d{8}$/.test(numeris);
+  const tinkamas = /^\+[1-9]\d{7,14}$/.test(numeris);
   if (tinkamas) {
     telefonoNumeris.setCustomValidity("");
   } else {
