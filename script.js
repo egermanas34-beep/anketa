@@ -19,6 +19,11 @@ atnaujintiPasirinkimusIssilavinimo();
 
 const vedybinePadetis = document.getElementById("vedybine_padetis");
 const vedes = document.querySelector(".vedes-istekejusi");
+const isimtiesGrupe = document.querySelector(".santuokos-isimtis");
+const turiLeidima = document.getElementById("turi_leidima");
+turiLeidima.addEventListener("change", () => {
+  tikrintiSantuokosAmziu();
+});
 function atnaujintiPasirinkimusVedybinePadetis() {
   const pasirinkimas = vedybinePadetis.value;
   rodytiGrupe(vedes, pasirinkimas === "vedes/istekejusi");
@@ -51,11 +56,20 @@ function apskaiciuotiAmziu() {
 }
 function tikrintiSantuokosAmziu() {
   const amzius = apskaiciuotiAmziu();
-  vedesOption.disabled = amzius < 18 || amzius === null;
-  issiskyresOption.disabled = amzius < 18 || amzius === null;
+  const rodytiIsimti = amzius !== null && amzius >= 16 && amzius < 18;
+  rodytiGrupe(isimtiesGrupe, rodytiIsimti);
+  if (!rodytiIsimti) {
+    turiLeidima.checked = false;
+  }
+  const galimaSusituokti =
+    amzius !== null &&
+    (amzius >= 18 || (amzius >= 16 && amzius < 18 && turiLeidima.checked));
+  vedesOption.disabled = !galimaSusituokti;
+  issiskyresOption.disabled = !galimaSusituokti;
   if (
-    (vedesOption.disabled && vedybinePadetis.value === "vedes/istekejusi") ||
-    (issiskyresOption.disabled && vedybinePadetis.value === "issiskyres(-usi)")
+    !galimaSusituokti &&
+    (vedybinePadetis.value === "vedes/istekejusi" ||
+      vedybinePadetis.value === "issiskyres(-usi)")
   ) {
     vedybinePadetis.value = "";
   }

@@ -247,6 +247,53 @@ form > div label:first-child {
   accent-color: #1d4ed8;
   margin-top: 10px;
 }
+
+.santuokos-isimtis {
+  margin: 16px 0;
+}
+
+.santuokos-isimtis label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 16px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+
+  color: #172033;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.santuokos-isimtis label:hover {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.santuokos-isimtis input[type="checkbox"] {
+  appearance: auto;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+
+  accent-color: #1d4ed8;
+  cursor: pointer;
+}
+
+.santuokos-isimtis label:focus-within {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
 /* Telefonų ir mažesnių ekranų išdėstymas */
 @media (max-width: 600px) {
   body {
