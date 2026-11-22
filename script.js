@@ -176,3 +176,43 @@ anketa.addEventListener("submit", (event) => {
   console.log("Anketos duomenys:", anketosDuomenys);
   alert("Anketa sėkmingai pateikta!");
 });
+const etapai = document.querySelectorAll(".etapas");
+let dabartinisEtapas = 0;
+function rodytiEtapa() {
+  etapai.forEach((etapas) => {
+    etapas.hidden = true;
+  });
+  etapai[dabartinisEtapas].hidden = false;
+}
+rodytiEtapa();
+const toliauMygtukai = document.querySelectorAll(".toliau");
+toliauMygtukai.forEach((mygtukas) => {
+  mygtukas.addEventListener("click", () => {
+    if (dabartinisEtapas < etapai.length - 1 && patikrintiEtapa()) {
+      dabartinisEtapas++;
+      rodytiEtapa();
+    }
+  });
+});
+const atgalMygtukai = document.querySelectorAll(".atgal");
+atgalMygtukai.forEach((mygtukas) => {
+  mygtukas.addEventListener("click", () => {
+    if (dabartinisEtapas > 0) {
+      dabartinisEtapas--;
+      rodytiEtapa();
+    }
+  });
+});
+function patikrintiEtapa() {
+  const laukai = etapai[dabartinisEtapas].querySelectorAll(
+    "input, select, textarea",
+  );
+  for (const laukas of laukai) {
+    if (!laukas.checkValidity()) {
+      laukas.reportValidity();
+      console.log("Laukas netinkamas:", laukas.name);
+      return false;
+    }
+  }
+  return true;
+}
